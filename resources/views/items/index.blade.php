@@ -8,31 +8,60 @@
                 <a href="{{ route('items.create') }}" class="btn btn-neutral btn-dash btn-sm">Add Item</a>
             </div>
         </div>
-
-        <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-            <table class="table table-xs">
+        <div class="rounded-box border border-base-content/5 bg-base-100">
+            <table class="table border-collapse border border-gray-400">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th class="">Name</th>
+                    <tr class="text-center">
+                        <th class="">ID</th>
+                        <th>Name</th>
+                        <th>SKU</th>
+                        <th>Reorder Level</th>
+                        <th>Total Stocks</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($items as $item)
-                        <tr class="hover:bg-base-300">
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
+                        <tr class="bg-hover:bg-base-100">
+                            <td>{{ $loop->iteration }}</td>
                             <td>
-                                <a href="{{ route('items.show', $item->id) }}"
-                                    class="btn btn-sm btn-info btn-dash">show</a>
-                                <a href="{{ route('items.edit', $item->id) }}"
-                                    class="btn btn-sm btn-success btn-dash">edit</a>
-                                <form method="POST" action="/items/{{ $item->id }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-warning btn-dash">delete</button>
-                                </form>
+                                <span class="font-extrabold">{{ $item->name }}</span>
+                            </td>
+                            <td>{{ $item->sku }}</td>
+                            <td class="text-right ">
+                                {{ $item->reorder_level }}
+                            </td>
+                            <td class="text-right">
+                                <span
+                                    class="{{ $item->total_stock < $item->reorder_level ? 'text-red-600 font-bold' : '' }}">
+                                    {{ $item->total_stock ?? 0 }}
+                                </span>
+                            </td>
+                            <td class="whitespace-nowrap text-right relative">
+                                <div class="dropdown dropdown-end">
+                                    <label tabindex="0" class="btn btn-sm btn-dash">Actions</label>
+                                    <ul tabindex="0"
+                                        class="dropdown-content menu bg-base-100 rounded-box shadow z-50 w-48 absolute">
+                                        <li class="block w-full">
+                                            <a href="{{ route('items.show', $item->id) }}" class="text-sm">Show</a>
+                                        </li>
+                                        <li class="block w-full">
+                                            <a href="{{ route('items.edit', $item->id) }}" class="text-sm">Edit</a>
+                                        </li>
+                                        <li class="block w-full">
+                                            <a href="{{ route('stocks.index', $item->id) }}"
+                                                class="btn-primary btn-dash">Stocks</a>
+                                        </li>
+                                        <li class="block w-full">
+                                            <form method="POST" action="{{ route('items.destroy', $item->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="text-sm text-red-600 block w-full text-left">Delete</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                     @empty

@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreStockLevelRequest extends FormRequest
+class TransferStockRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreStockLevelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'from_warehouse_id' => ['required', 'exists:warehouses,id'],
+            'to_warehouse_id' => ['required', 'exists:warehouses,id', 'different:from_warehouse_id'],
+            'quantity' => ['required', 'integer', 'min:1'],
+            'note' => ['nullable', 'string'],
         ];
     }
 }

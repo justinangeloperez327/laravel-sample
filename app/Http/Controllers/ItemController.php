@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -15,7 +16,13 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        // first discussion
+        // $items = Item::all();
+
+        $items = Item::query()
+            ->orderBy('name')
+            ->withSum('stocks as total_stock', 'quantity')
+            ->get();
 
         return view('items.index', [
             'items' => $items
@@ -35,7 +42,9 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        $item = Item::create($request->validated());
+        // first discussion
+
+        Auth::user()->items()->create($request->validated());
 
         return redirect('/items')->with('success', 'Item Created');
     }

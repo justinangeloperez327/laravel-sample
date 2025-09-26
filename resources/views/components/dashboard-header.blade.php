@@ -4,10 +4,10 @@
             'url' => route('dashboard'),
             'label' => 'Dashboard',
         ],
-        [
-            'url' => route('plans.index'),
-            'label' => 'Plans',
-        ],
+        // [
+        //     'url' => route('plans.index'),
+        //     'label' => 'Plans',
+        // ],
         [
             'url' => route('items.index'),
             'label' => 'Items',
@@ -16,12 +16,16 @@
             'url' => route('warehouses.index'),
             'label' => 'Warehouses',
         ],
+        [
+            'url' => route('stock-movements.index'),
+            'label' => 'Stock Movements',
+        ],
     ];
 @endphp
 
 <header class="bg-base-300 shadow-sm">
     <nav class="navbar  container mx-auto">
-        <div class="flex-1">
+        <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -39,17 +43,17 @@
                 </ul>
             </div>
             <a href="/dashboard" class="btn btn-ghost text-xl">Inventory</a>
-            <div class="hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
-                    @foreach ($links as $link)
-                        <li><a href="{{ $link['url'] }}" class="btn btn-ghost">{{ $link['label'] }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
+
 
         </div>
-
-        <div class="flex-none">
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                @foreach ($links as $link)
+                    <li><a href="{{ $link['url'] }}" class="btn btn-ghost">{{ $link['label'] }}</a></li>
+                @endforeach
+            </ul>
+        </div>
+        <div class="navbar-end">
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost">
                     <span>{{ Auth::user()->email }}</span>

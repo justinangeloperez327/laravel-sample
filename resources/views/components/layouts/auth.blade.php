@@ -7,5 +7,4 @@
             {{ $slot }}
         </div>
     </main>
-    <x-footer />
 </x-layouts.base>

@@ -11,9 +11,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen flex flex-col bg-base-200 font-sans">
+<body class="min-h-screen flex flex-col bg-base-200 font-sans antialiased">
 
     {{ $slot }}
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 
 </html>

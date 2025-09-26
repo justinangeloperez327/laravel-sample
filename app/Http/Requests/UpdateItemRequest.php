@@ -23,6 +23,9 @@ class UpdateItemRequest extends FormRequest
     {
         return [
             'name' => ['string', 'required', 'max:255'],
+            'description' => ['string', 'nullable'],
+            'sku' => ['string', 'nullable', 'max:100'],
+            'reorder_level' => ['integer', 'nullable', 'min:0'],
         ];
     }
 }

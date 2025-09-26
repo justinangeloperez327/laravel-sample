@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Warehouse::class, 'created_by');
     }
+
+    public function stockMovements()
+    {
+        return $this->hasMany(StockMovement::class);
+    }
 }

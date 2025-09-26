@@ -1,51 +1,63 @@
 <x-layouts.dashboard>
-    <div class="card w-96 bg-base-300">
-        <div class="card-body">
-            <h1 class="mt-1 text-lg font-bold mb-6">Add Warehouse</h1>
+    <div class="px-4 mx-2">
+        <div class="flex mb-2 justify-between">
+            <div class="">
+                <h2 class="text-2xl font-semibold">Add New Warehouse</h2>
+            </div>
+            <div class="">
+                <a href="{{ route('warehouses.index') }}" class="btn btn-neutral btn-dash btn-sm">Back to Warehouses</a>
+            </div>
+        </div>
+        <div class="card w-96 bg-base-300">
+            <div class="card-body">
+                <h1 class="mt-1 text-lg font-bold mb-6">Warehouse Form</h1>
 
-            <form method="POST" action="{{ route('warehouses.store') }}">
-                @csrf
+                <form method="POST" action="{{ route('warehouses.store') }}">
+                    @csrf
 
-                <label class="floating-label mb-6">
-                    <input type="name" name="name" placeholder="Item Name" value="{{ old('name') }}"
-                        class="input input-bordered @error('name') input-error @enderror" required autofocus>
-                    <span>Name</span>
-                </label>
-                @error('name')
-                    <div class="label -mt-4 mb-2">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
+                    <label class="floating-label mb-6">
+                        <input type="name" name="name" placeholder="Item Name" value="{{ old('name') }}"
+                            class="input input-bordered @error('name') input-error @enderror" required autofocus>
+                        <span>Name</span>
+                    </label>
+                    @error('name')
+                        <div class="label -mt-4 mb-2">
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        </div>
+                    @enderror
+
+
+                    <label class="floating-label mb-6">
+                        <input type="text" name="description" placeholder="Description"
+                            value="{{ old('description') }}"
+                            class="input input-bordered @error('description') input-error @enderror">
+                        <span>Description</span>
+                    </label>
+                    @error('description')
+                        <div class="label -mt-4 mb-2">
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        </div>
+                    @enderror
+
+                    <label class="floating-label mb-6">
+                        <input type="text" name="location" placeholder="Location" value="{{ old('location') }}"
+                            class="input input-bordered @error('location') input-error @enderror" required>
+                        <span>Location</span>
+                    </label>
+                    @error('location')
+                        <div class="label -mt-4 mb-2">
+                            <span class="label-text-alt text-error">{{ $message }}</span>
+                        </div>
+                    @enderror
+
+                    <div class="form-control mt-8">
+                        <button type="submit" class="btn btn-primary btn-sm w-full">
+                            Save
+                        </button>
                     </div>
-                @enderror
-
-
-                <label class="floating-label mb-6">
-                    <input type="text" name="description" placeholder="Description" value="{{ old('description') }}"
-                        class="input input-bordered @error('description') input-error @enderror">
-                    <span>Description</span>
-                </label>
-                @error('description')
-                    <div class="label -mt-4 mb-2">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
-                    </div>
-                @enderror
-
-                <label class="floating-label mb-6">
-                    <input type="text" name="location" placeholder="Location" value="{{ old('location') }}"
-                        class="input input-bordered @error('location') input-error @enderror" required>
-                    <span>Location</span>
-                </label>
-                @error('location')
-                    <div class="label -mt-4 mb-2">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
-                    </div>
-                @enderror
-
-                <div class="form-control mt-8">
-                    <button type="submit" class="btn btn-primary btn-sm w-full">
-                        Save
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
 </x-layouts.dashboard>

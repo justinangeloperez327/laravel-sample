@@ -14,7 +14,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th class="">Name</th>
+                        <th>Name</th>
+                        <th>Location</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -23,6 +24,7 @@
                         <tr class="hover:bg-base-300">
                             <td>{{ $warehouse->id }}</td>
                             <td>{{ $warehouse->name }}</td>
+                            <td>{{ $warehouse->location }}</td>
                             <td>
                                 <a href="{{ route('warehouses.show', $warehouse->id) }}"
                                     class="btn btn-sm btn-info btn-dash">show</a>

@@ -31,4 +31,14 @@ class Warehouse extends Model
     {
         return $this->hasMany(StockMovement::class);
     }
+
+    public function images(): MorphMany
+    {
+        return $this->morphMany(\App\Models\Image::class, 'imageable');
+    }
+
+    public function image(): MorphMany
+    {
+        return $this->morphOne(\App\Models\Image::class, 'imageable')->where('is_primary', true);
+    }
 }

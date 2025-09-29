@@ -8,7 +8,7 @@
                 <a href="{{ route('items.index') }}" class="btn btn-neutral btn-dash btn-sm">Back to Items</a>
             </div>
         </div>
-        <div class="card w-96 bg-base-300">
+        <div class="card w-96 bg-base-100">
             <div class="card-body">
                 <h1 class="mt-1 text-lg font-bold mb-6">Item Form</h1>
 
@@ -63,7 +63,7 @@
                         </div>
                     @enderror
 
-                    <button type="submit" class="btn btn-primary btn-dash">
+                    <button type="submit" class="btn btn-dash">
                         Save
                     </button>
                 </form>

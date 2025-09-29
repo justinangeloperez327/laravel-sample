@@ -22,6 +22,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Flagship Samsung Galaxy S23 with cutting-edge technology',
                     'reorder_level' => 20,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Google Pixel 8',
@@ -29,6 +31,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Google Pixel 8 with exceptional camera capabilities',
                     'reorder_level' => 10,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'OnePlus 11',
@@ -36,6 +40,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'OnePlus 11 with high performance and fast charging',
                     'reorder_level' => 25,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Sony Xperia 1 IV',
@@ -43,6 +49,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Sony Xperia 1 IV with stunning display and audio quality',
                     'reorder_level' => 5,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Motorola Edge 30',
@@ -50,6 +58,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Motorola Edge 30 with sleek design and powerful features',
                     'reorder_level' => 15,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Nokia X30',
@@ -57,6 +67,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Nokia X30 with durable build and reliable performance',
                     'reorder_level' => 30,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Asus ROG Phone 7',
@@ -64,6 +76,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Asus ROG Phone 7 with gaming-centric features and high refresh rate',
                     'reorder_level' => 8,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Xiaomi 13 Pro',
@@ -71,6 +85,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Xiaomi 13 Pro with advanced camera system and fast performance',
                     'reorder_level' => 12,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Oppo Find X6 Pro',
@@ -78,6 +94,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Oppo Find X6 Pro with innovative design and powerful specs',
                     'reorder_level' => 18,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Vivo X90 Pro+',
@@ -85,6 +103,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Vivo X90 Pro+ with exceptional camera performance and sleek design',
                     'reorder_level' => 22,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'Realme GT 3',
@@ -92,6 +112,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'Realme GT 3 with high refresh rate display and fast charging',
                     'reorder_level' => 14,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ],
                 [
                     'name' => 'ZTE Axon 40 Ultra',
@@ -99,6 +121,8 @@ class ItemsSeeder extends Seeder
                     'description' => 'ZTE Axon 40 Ultra with under-display camera and premium features',
                     'reorder_level' => 7,
                     'created_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]
             ]);
     }

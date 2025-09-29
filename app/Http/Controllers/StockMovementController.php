@@ -7,6 +7,7 @@ use App\Models\Stock;
 use App\Models\StockMovement;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StockMovementController extends Controller
 {
@@ -52,7 +53,7 @@ class StockMovementController extends Controller
             'type' => 'transfer_out',
             'quantity' => $validated['quantity'],
             'note' => $validated['note'] ?? null,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
         // Add stock to the destination warehouse
@@ -72,7 +73,7 @@ class StockMovementController extends Controller
             'type' => 'transfer_in',
             'quantity' => $validated['quantity'],
             'note' => $validated['note'] ?? null,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
         return redirect(route('stocks.index', $item->id))->with('success', 'Transfer successful');

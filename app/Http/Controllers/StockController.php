@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Stock;
-use App\Models\StockLevel;
-use App\Models\StockMovement;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use App\Models\StockMovement;
+use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
 {
@@ -74,7 +74,7 @@ class StockController extends Controller
             'item_id' => $stock->item_id,
             'type' => $type,
             'quantity' => $quantity,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
         $stock->update([

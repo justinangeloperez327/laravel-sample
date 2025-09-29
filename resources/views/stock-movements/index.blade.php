@@ -7,7 +7,7 @@
 
         </div>
         <div class="rounded-box border border-base-content/5 bg-base-100">
-            <table class="table table-fixed">
+            <table class="table border-collapse border border-gray-400">
                 <thead>
                     <tr>
                         <th>Item</th>

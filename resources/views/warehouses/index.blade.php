@@ -9,8 +9,8 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-            <table class="table table-xs">
+        <div class="rounded-box border border-base-content/5 bg-base-100">
+            <table class="table border-collapse border border-gray-400">
                 <thead>
                     <tr>
                         <th>ID</th>

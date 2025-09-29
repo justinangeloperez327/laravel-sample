@@ -55,8 +55,10 @@
         </div>
         <div class="navbar-end">
             <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost">
-                    <span>{{ Auth::user()->email }}</span>
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="" src="{{ Auth::user()->image->url() }}" />
+                    </div>
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
@@ -68,7 +70,6 @@
                     <li class="block w-full">
                         <form action="{{ route('logout') }}" method="POST" class="block w-full">
                             @csrf
-                            <input type="hidden" name="_method" value="POST">
                             <button type="submit" class="block w-full text-left">Logout</button>
                         </form>
                     </li>

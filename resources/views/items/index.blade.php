@@ -8,7 +8,7 @@
                 <a href="{{ route('items.create') }}" class="btn btn-neutral btn-dash btn-sm">Add Item</a>
             </div>
         </div>
-        <div class="rounded-box border border-base-content/5 bg-base-100">
+        <div class="bg-base-100">
             <table class="table border-collapse border border-gray-400">
                 <thead>
                     <tr class="text-center">
@@ -66,7 +66,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-center">No items found.</td>
+                            <td colspan="5" class="text-center">No items found.</td>
                         </tr>
                     @endforelse
                 </tbody>

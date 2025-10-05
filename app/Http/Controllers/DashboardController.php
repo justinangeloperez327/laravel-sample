@@ -16,14 +16,14 @@ class DashboardController extends Controller
         $totalItems = Item::count();
         $totalWarehouses = Warehouse::count();
 
-        $totalLowStockItems = Item::whereHas('stocks', function ($query) {
+        $totalLowStockItems = Item::whereHas('stocks', function ($query): void {
             $query->whereColumn('quantity', '<=', 'reorder_level');
         })->count();
 
         return view('dashboard', [
             'totalItems' => $totalItems,
             'totalWarehouses' => $totalWarehouses,
-            'totalLowStockItems' => $totalLowStockItems
+            'totalLowStockItems' => $totalLowStockItems,
         ]);
     }
 }

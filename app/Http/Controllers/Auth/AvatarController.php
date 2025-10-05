@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Image;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
@@ -12,7 +12,7 @@ class AvatarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'avatar' => ['required','image','mimes:jpg,jpeg,png,webp','max:2048'],
+            'avatar' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
         $user = $request->user();
@@ -39,7 +39,7 @@ class AvatarController extends Controller
     public function update(Request $request, Image $image)
     {
         $request->validate([
-            'avatar' => ['required','image','mimes:jpg,jpeg,png,webp','max:2048'],
+            'avatar' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
         $file = $request->file('avatar');
@@ -52,12 +52,12 @@ class AvatarController extends Controller
 
         // update record
         $image->update([
-            'path'          => $path,
+            'path' => $path,
             'original_name' => $file->getClientOriginalName(),
-            'mime'          => $file->getClientMimeType(),
-            'size'          => $file->getSize(),
+            'mime' => $file->getClientMimeType(),
+            'size' => $file->getSize(),
         ]);
 
-        return back()->with('success','Avatar updated successfully.');
+        return back()->with('success', 'Avatar updated successfully.');
     }
 }

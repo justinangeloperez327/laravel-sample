@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class WarehouseSeeder extends Seeder
 {
@@ -31,7 +30,7 @@ class WarehouseSeeder extends Seeder
                 'location' => '789 Overflow Rd, Villagetown',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
         ]);
     }
 }

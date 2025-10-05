@@ -12,7 +12,7 @@ class HomeController extends Controller
         $plans = Plan::all();
 
         return view('home', [
-            'plans' => $plans
+            'plans' => $plans,
         ]);
     }
 }

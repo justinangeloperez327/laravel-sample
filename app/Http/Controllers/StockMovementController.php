@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
 use App\Models\Stock;
 use App\Models\StockMovement;
 use App\Models\Warehouse;
@@ -14,17 +13,17 @@ class StockMovementController extends Controller
     public function index()
     {
         $stockMovements = StockMovement::with(['item', 'warehouse', 'user'])->get();
+
         return view('stock-movements.index', [
-            'stockMovements' => $stockMovements
+            'stockMovements' => $stockMovements,
         ]);
     }
-
 
     public function create(Stock $stock)
     {
         return view('stock-movements.create', [
             'stock' => $stock,
-            'warehouses' => Warehouse::where('id', '!=', $stock->warehouse_id)->get()
+            'warehouses' => Warehouse::where('id', '!=', $stock->warehouse_id)->get(),
         ]);
     }
 
@@ -36,7 +35,7 @@ class StockMovementController extends Controller
         $validated = $request->validate([
             'warehouse_id' => ['required'],
             'quantity' => ['required', 'integer'],
-            'note' => ['nullable', 'string', 'max:255']
+            'note' => ['nullable', 'string', 'max:255'],
         ]);
 
         // Check first if the quantity is available in the from_warehouse_id
@@ -63,7 +62,7 @@ class StockMovementController extends Controller
         } else {
             $item->stocks()->create([
                 'warehouse_id' => $validated['warehouse_id'],
-                'quantity' => $validated['quantity']
+                'quantity' => $validated['quantity'],
             ]);
         }
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscription;
 use App\Http\Requests\StoreSubscriptionRequest;
 use App\Http\Requests\UpdateSubscriptionRequest;
+use App\Models\Subscription;
 
 class SubscriptionController extends Controller
 {
@@ -16,7 +16,7 @@ class SubscriptionController extends Controller
         $subscriptions = Subscription::all();
 
         return view('subscriptions.index', [
-            'subscriptions' => $subscriptions
+            'subscriptions' => $subscriptions,
         ]);
     }
 
@@ -44,7 +44,7 @@ class SubscriptionController extends Controller
     public function show(Subscription $subscription)
     {
         return view('subscriptions.show', [
-            'subscription' => $subscription
+            'subscription' => $subscription,
         ]);
     }
 
@@ -54,7 +54,7 @@ class SubscriptionController extends Controller
     public function edit(Subscription $subscription)
     {
         return view('subscriptions.edit', [
-            'subscription' => $subscription
+            'subscription' => $subscription,
         ]);
     }
 

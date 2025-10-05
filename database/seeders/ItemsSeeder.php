@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Item;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ItemsSeeder extends Seeder
 {
@@ -123,7 +121,7 @@ class ItemsSeeder extends Seeder
                     'created_by' => 1,
                     'created_at' => now(),
                     'updated_at' => now(),
-                ]
+                ],
             ]);
     }
 }

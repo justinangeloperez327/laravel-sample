@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Stock;
+use App\Models\StockMovement;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
-use App\Models\StockMovement;
 use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
@@ -16,7 +16,7 @@ class StockController extends Controller
         $item->load('stocks');
 
         return view('stocks.index', [
-            'item' => $item
+            'item' => $item,
         ]);
     }
 
@@ -28,7 +28,7 @@ class StockController extends Controller
 
         return view('stocks.create', [
             'item' => $item,
-            'warehouses' => $warehouses
+            'warehouses' => $warehouses,
         ]);
     }
 
@@ -47,21 +47,21 @@ class StockController extends Controller
     public function edit(Stock $stock)
     {
         return view('stocks.edit', [
-            'stock' => $stock
+            'stock' => $stock,
         ]);
     }
 
     public function update(Stock $stock, Request $request)
     {
         $validated = $request->validate([
-            'quantity' => ['required', 'integer']
+            'quantity' => ['required', 'integer'],
         ]);
 
-        if($stock->quantity == $validated['quantity']) {
+        if ($stock->quantity == $validated['quantity']) {
             return back()->with('info', 'No changes made to the stock quantity.');
         }
 
-        if($stock->quantity < $validated['quantity']) {
+        if ($stock->quantity < $validated['quantity']) {
             $type = 'increase';
             $quantity = $validated['quantity'] - $stock->quantity;
         } else {
@@ -78,7 +78,7 @@ class StockController extends Controller
         ]);
 
         $stock->update([
-            'quantity' => $validated['quantity']
+            'quantity' => $validated['quantity'],
         ]);
 
         return redirect(route('stocks.index', $stock->item_id))->with('success', 'Stocks Updated');

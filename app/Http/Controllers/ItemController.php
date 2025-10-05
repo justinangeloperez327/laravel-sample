@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -25,7 +23,7 @@ class ItemController extends Controller
             ->get();
 
         return view('items.index', [
-            'items' => $items
+            'items' => $items,
         ]);
     }
 
@@ -55,7 +53,7 @@ class ItemController extends Controller
     public function show(Item $item)
     {
         return view('items.show', [
-            'item' => $item
+            'item' => $item,
         ]);
     }
 
@@ -65,7 +63,7 @@ class ItemController extends Controller
     public function edit(Item $item)
     {
         return view('items.edit', [
-            'item' => $item
+            'item' => $item,
         ]);
     }
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plan;
 use App\Http\Requests\StorePlanRequest;
 use App\Http\Requests\UpdatePlanRequest;
+use App\Models\Plan;
 
 class PlanController extends Controller
 {
@@ -16,7 +16,7 @@ class PlanController extends Controller
         $plans = Plan::all();
 
         return view('plans.index', [
-            'plans' => $plans
+            'plans' => $plans,
         ]);
     }
 
@@ -44,7 +44,7 @@ class PlanController extends Controller
     public function show(Plan $plan)
     {
         return view('plans.show', [
-            'plan' => $plan
+            'plan' => $plan,
         ]);
     }
 
@@ -54,7 +54,7 @@ class PlanController extends Controller
     public function edit(Plan $plan)
     {
         return view('plans.edit', [
-            'plan' => $plan
+            'plan' => $plan,
         ]);
     }
 

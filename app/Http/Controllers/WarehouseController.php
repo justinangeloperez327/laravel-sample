@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Warehouse;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreWarehouseRequest;
 use App\Http\Requests\UpdateWarehouseRequest;
+use App\Models\Warehouse;
+use Illuminate\Support\Facades\Auth;
 
 class WarehouseController extends Controller
 {
@@ -15,7 +15,7 @@ class WarehouseController extends Controller
     public function index()
     {
         return view('warehouses.index', [
-            'warehouses' => Warehouse::all()
+            'warehouses' => Warehouse::all(),
         ]);
     }
 
@@ -43,7 +43,7 @@ class WarehouseController extends Controller
     public function show(Warehouse $warehouse)
     {
         return view('warehouses.show', [
-            'warehouse' => $warehouse
+            'warehouse' => $warehouse,
         ]);
     }
 
@@ -53,7 +53,7 @@ class WarehouseController extends Controller
     public function edit(Warehouse $warehouse)
     {
         return view('warehouses.edit', [
-            'warehouse' => $warehouse
+            'warehouse' => $warehouse,
         ]);
     }
 
